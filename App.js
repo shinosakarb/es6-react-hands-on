@@ -1,8 +1,27 @@
 import React from 'react'
 
 class App extends React.Component {
+  constructor(){
+    super()
+
+    // stateのデフォルト値
+    this.state = {
+      name: 'Shinosaka.rb'
+    }
+  }
+  onChangeName(e){
+    this.setState({
+      name: e.target.value
+    })
+  }
   render(){
-    return <div>Hello { `${this.props.name} #${this.props.number}` } </div>
+    // propsからstateへ
+    return (
+      <div>
+        <h1>Hello { `${this.state.name} #${this.props.number}` } </h1>
+        <input type="text" onChange={this.onChangeName.bind(this)} />
+      </div>
+    )
   }
 }
 
